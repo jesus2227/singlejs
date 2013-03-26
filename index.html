@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Single.js plugin</title>
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+
+	<div id="single">
+
+		<div data-target="home">
+
+		</div>
+
+		<div data-target="skills">
+
+		</div>
+
+		<div data-target="portfolio">
+
+		</div>
+
+		<div data-target="contact">
+
+		</div>
+
+	</div>
+
+	<!-- Page loads faster -->
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/single-0.1.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#single").single();
+		});
+	</script>
+
+</body>
+</html>
