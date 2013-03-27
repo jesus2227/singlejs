@@ -55,3 +55,37 @@ The link is pointing to the contact section:
 </div>
 ...
 ```
+
+## Auto-resizing images
+
+Using the ```data-img="true"``` attribute on every image the plugin will automatically add a prefix to the name of the image as the window changes his size. You just need to have 4 differents sizes of your image available. See the example:
+
+Let's say that you have this four images: "assassin.jpg", "assassin-medium.jpg", "assassin-small.jpg" and "assassin-smallest.jpg". They're all optimized for smartphones, tablets and desktops. You can do that:
+
+```
+<img src="img/assassin.jpg" alt="Assassins Creed" data-img="true" />
+```
+
+And the plugin will recognize your image source and add the prefix for you.
+
+## Plugin Defaults
+
+```
+$("#single").single({
+	speed: 2000,
+	animation: "easeOutExpo",
+	prefixes: {
+		smallest: "-smallest",
+		small   : "-small",
+		medium  : "-medium",
+		normal  : ""
+	}
+});
+```
+
+## Cool examples
+
+Here's a few examples of cool websites that you can easily build with that plugin:
+
+- My Portfolio: [http://www.rafaelfragoso.com/](http://www.rafaelfragoso.com/)
+- SuperheroJS: [http://superherojs.com/](http://superherojs.com/)

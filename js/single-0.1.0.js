@@ -12,12 +12,12 @@
 			// Resize the "data-target" divs
 			changeCSS(element);
 			// Resize all the "data-img='true'" images
-			changeIMG();
+			changeIMG(opts);
 
 			// Bind the methods changeCSS and changeIMG to the resize window event
 			$(window).bind("resize", function(){  
 				changeCSS(element);  
-				changeIMG();
+				changeIMG(opts);
 			});
 
 			// Bind the method click to the data-link
@@ -56,7 +56,7 @@
 	}
 
 	// function to resize the images
-	function changeIMG() {
+	function changeIMG(opts) {
 
 		// Grab the screen resolution
 		windowWidth 	= $(window).width();
@@ -67,7 +67,7 @@
 			imgName		= "";
 			imgFinal	= "";
 			imgSplit	= {};
-			imagePrefix	= checkResolution(windowWidth);
+			imagePrefix	= checkResolution(windowWidth, opts);
 
 			if ( src.match("/") ) { // Match if there's a full URL at the IMG src and cut it
 				re 	= new RegExp(".*\/(.*)$");
@@ -117,22 +117,22 @@
 	}
 
 	// function to check the resolution and return the prefix for the image
-	function checkResolution(windowWidth) {
+	function checkResolution(windowWidth, opts) {
 
 		if (windowWidth <= 480) {
-			return "-smallest";
+			return opts.prefixes.smallest;
 		} 
 
 		if(windowWidth > 480 && windowWidth <= 767) {
-			return "-small";
+			return opts.prefixes.small;
 		} 
 
 		if(windowWidth > 767 && windowWidth <= 979) {
-			return "-medium";
+			return opts.prefixes.medium;
 		} 
 
 		if(windowWidth > 979) {
-			return "";
+			return opts.prefixes.normal;
 		}
 
 	}
@@ -140,7 +140,13 @@
 	// Plugin defaults
 	$.fn.single.defaults = {
 		speed: 2000,
-		animation: "easeOutExpo"
+		animation: "easeOutExpo",
+		prefixes: {
+			smallest: "-smallest",
+			small   : "-small",
+			medium  : "-medium",
+			normal  : "" // Leave blank for no prefix
+		}
 	};
 
 })(jQuery);
