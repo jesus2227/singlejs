@@ -85,6 +85,10 @@ $("#single").single({
 
 ## Cool examples
 
+SingleJS Working:
+
+- [SingleJS Demo Page](http://singlejs.rafaelfragoso.com/)
+
 Here's a few examples of cool websites that you can easily build with that plugin:
 
 - My Portfolio: [http://www.rafaelfragoso.com/](http://www.rafaelfragoso.com/)
