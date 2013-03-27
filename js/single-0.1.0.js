@@ -37,6 +37,10 @@
 		// Count how many targets the div has
 		var targetsSize		= $("[data-target]").size();
 
+		if (targetsSize > 1) {
+			windowWidth = windowWidth - 17;
+		}
+
 		// Resize the parent div
 		$(element).css({
 			"width" : windowWidth,
