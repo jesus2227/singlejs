@@ -11,6 +11,8 @@
 
 			// Resize the "data-target" divs
 			changeCSS(element);
+			// Resize all the "data-img='true'" images
+			changeIMG();
 
 			// Bind the methods changeCSS and changeIMG to the resize window event
 			$(window).bind("resize", function(){  
@@ -32,14 +34,10 @@
 	function changeCSS(element) {
 
 		// Grab the screen resolution
-		var windowWidth 	= $(window).width();
+		var windowWidth 	= "100%";
 		var windowHeight	= $(window).height();
 		// Count how many targets the div has
 		var targetsSize		= $("[data-target]").size();
-
-		if (targetsSize > 1) {
-			windowWidth = windowWidth - 17;
-		}
 
 		// Resize the parent div
 		$(element).css({
@@ -59,7 +57,47 @@
 
 	// function to resize the images
 	function changeIMG() {
+
+		// Grab the screen resolution
+		windowWidth 	= $(window).width();
 		
+		$("img[data-img='true']").each(function(index, element){
+
+			src			= $(element).attr('src');
+			imgName		= "";
+			imgFinal	= "";
+			imgSplit	= {};
+			imagePrefix	= checkResolution(windowWidth);
+
+			if ( src.match("/") ) { // Match if there's a full URL at the IMG src and cut it
+				re 	= new RegExp(".*\/(.*)$");
+				m 	= re.exec(src);    
+				imgName = m[1];
+			} else {
+				// Just the img without an URL
+				imgName = src;
+			}
+
+			if( imgName.match(/\-\w+/) ) {
+
+				src = src.replace(/\-\w+/, imagePrefix);
+
+			} else {
+
+				// Split the name of the extension
+				imgSplit 	= imgName.split('.'); 
+
+				// Replace the name with the image prefix
+				imgFinal	= imgSplit[0] + imagePrefix + '.' + imgSplit[1];
+				src 		= src.replace(imgName, imgFinal);
+
+			}
+
+			// Replace the image
+			$(element).attr('src', src);
+
+		});
+
 	}
 
 	// function to scroll the page to a section
@@ -75,6 +113,27 @@
 			duration: opts.speed,
 			easing: opts.animation
 		});
+
+	}
+
+	// function to check the resolution and return the prefix for the image
+	function checkResolution(windowWidth) {
+
+		if (windowWidth <= 480) {
+			return "-smallest";
+		} 
+
+		if(windowWidth > 480 && windowWidth <= 767) {
+			return "-small";
+		} 
+
+		if(windowWidth > 767 && windowWidth <= 979) {
+			return "-medium";
+		} 
+
+		if(windowWidth > 979) {
+			return "";
+		}
 
 	}
 
