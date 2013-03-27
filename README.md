@@ -58,7 +58,7 @@ The link is pointing to the contact section:
 
 ## Auto-resizing images
 
-Using the ```data-img="true"``` attribute on every image the plugin will automatically add a prefix to the name of the image as the window changes his size. You just need to have 4 differents sizes of your image available. See the example:
+Using the ```data-img="true"``` attribute on every image the plugin will automatically add a sufix to the name of the image as the window changes his size. You just need to have 4 differents sizes of your image available. See the example:
 
 Let's say that you have this four images: "assassin.jpg", "assassin-medium.jpg", "assassin-small.jpg" and "assassin-smallest.jpg". They're all optimized for smartphones, tablets and desktops. You can do that:
 
@@ -66,7 +66,7 @@ Let's say that you have this four images: "assassin.jpg", "assassin-medium.jpg",
 <img src="img/assassin.jpg" alt="Assassins Creed" data-img="true" />
 ```
 
-And the plugin will recognize your image source and add the prefix for you.
+And the plugin will recognize your image source and add the sufix for you.
 
 ## Plugin Defaults
 
@@ -74,7 +74,7 @@ And the plugin will recognize your image source and add the prefix for you.
 $("#single").single({
 	speed: 2000,
 	animation: "easeOutExpo",
-	prefixes: {
+	sufixes: {
 		smallest: "-smallest",
 		small   : "-small",
 		medium  : "-medium",

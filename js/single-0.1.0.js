@@ -120,19 +120,19 @@
 	function checkResolution(windowWidth, opts) {
 
 		if (windowWidth <= 480) {
-			return opts.prefixes.smallest;
+			return opts.sufixes.smallest;
 		} 
 
 		if(windowWidth > 480 && windowWidth <= 767) {
-			return opts.prefixes.small;
+			return opts.sufixes.small;
 		} 
 
 		if(windowWidth > 767 && windowWidth <= 979) {
-			return opts.prefixes.medium;
+			return opts.sufixes.medium;
 		} 
 
 		if(windowWidth > 979) {
-			return opts.prefixes.normal;
+			return opts.sufixes.normal;
 		}
 
 	}
@@ -141,7 +141,7 @@
 	$.fn.single.defaults = {
 		speed: 2000,
 		animation: "easeOutExpo",
-		prefixes: {
+		sufixes: {
 			smallest: "-smallest",
 			small   : "-small",
 			medium  : "-medium",
