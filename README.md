@@ -6,7 +6,7 @@ SingleJS is a jQuery plugin that makes it easy to create websites with single-pa
 
 First you will need the jQuery and [jQuery Easing Plugin](http://gsgd.co.uk/sandbox/jquery/easing/), then you can download the single.js plugin. Once you have done this you will need to create the HTML structure and call the plugin, as in the example below:
 
-```
+```html
 <div id="single">
 
 	<div data-target="home">
@@ -30,7 +30,7 @@ First you will need the jQuery and [jQuery Easing Plugin](http://gsgd.co.uk/sand
 
 And you can call the plugin like that:
 
-```
+```js
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#single").single();
@@ -48,7 +48,7 @@ Using the ```data-link``` attribute on every link, button and etc... you can eas
 
 The link is pointing to the contact section:
 
-```
+```html
 ...
 <div data-target="contact">
 
@@ -62,7 +62,7 @@ Using the ```data-img="true"``` attribute on every image the plugin will automat
 
 Let's say that you have this four images: "assassin.jpg", "assassin-medium.jpg", "assassin-small.jpg" and "assassin-smallest.jpg". They're all optimized for smartphones, tablets and desktops. You can do that:
 
-```
+```html
 <img src="img/assassin.jpg" alt="Assassins Creed" data-img="true" />
 ```
 
@@ -70,7 +70,7 @@ And the plugin will recognize your image source and add the sufix for you.
 
 ## Plugin Defaults
 
-```
+```js
 $("#single").single({
 	speed: 2000,
 	animation: "easeOutExpo",
